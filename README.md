@@ -6,6 +6,7 @@ This a role controller using Cocos2d-x , which can be used in 2d game designing.
 
 ### 引用
 1、将Classes内的RoleController.cpp和RoleController.h文件复制到你的Classes目录下，并在你想要的场景或者层中引入。
+
 2、RoleController类的创建和使用,例如
 ```
 // 在你的合适位置初始化控制器即可
@@ -35,18 +36,18 @@ bool MainMenuScene::init() {
 class MainMenuScene : public cocos2d::Scene , public RoleControllerListenr
 {
 public:
-	LayerColor * role; 
-	Vec2 m_velocity;
-	Size winSize;
+  LayerColor * role; 
+  Vec2 m_velocity;
+  Size winSize;
   // ... 其他代码
   
   // 声明3个接口的抽象函数，并在你对应的cpp文件中实现它们
   void onControllerTouchBegan(Vec2 velocity); 
-	void onControllerTouchMoving(Vec2 velocity);
-	void onControllerTouchEnded(Vec2 velocity);
+  void onControllerTouchMoving(Vec2 velocity);
+  void onControllerTouchEnded(Vec2 velocity);
 }
 
-// 在对应的cpp文件中实现这3个RoleControllerListenr接口的方法
+// 在对应的cpp文件中实现这3个RoleControllerListenr接口的方法,例如在MainMenuScene.cpp中
 void MainMenuScene::onControllerTouchBegan(Vec2 velocity)
 {
 	CCLOG("MainMenuScene start %f %f", velocity.x, velocity.y);
