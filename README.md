@@ -64,4 +64,16 @@ void MainMenuScene::onControllerTouchEnded(Vec2 velocity)
 	CCLOG("MainMenuScene end %f %f", velocity.x, velocity.y);
 	//unscheduleUpdate();
 }
+
+// 在此更新函数内，编写控制角色位置的逻辑代码
+void MainMenuScene::update(float dt) { 
+	float speed = 3.0f; // 每一帧角色移动的速度
+	// 因为是默认的更新方法，所以dt的值为 1/60 秒，即一秒内定时器会执行60次该方法，
+        // 因此要将偏移量除以 60 ,防止因每一帧偏移量太大而使角色位移太快
+	Vect newPosition = role->getPosition() + Vec2(this->m_velocity.x, this->m_velocity.y) / 60.0f * speed;
+	if (newPosition.x> 0 && newPosition.x < winSize.width 
+		&& newPosition.y > 0 && newPosition.y < winSize.height)
+	   role->setPosition(newPosition);
+}
+
 ```
