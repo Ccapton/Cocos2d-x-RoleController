@@ -9,12 +9,18 @@ USING_NS_CC;
 
 class RoleControllerListenr {
 public:
+	// velocity 为控制球相对于控制中心的偏移量，
+	// 你可以在具体的实现方法内利用定时更新函数对此结果进行利用，进而实现对精灵的位置控制
    virtual void onControllerTouchBegan(Vec2 velocity) = 0;
    virtual void onControllerTouchMoving(Vec2 velocity) = 0;
    virtual void onControllerTouchEnded(Vec2 velocity) = 0;
 };
 
 class RoleController : public Layer {
+private:
+	RoleController() {
+
+	}
 public:
 	bool touchIngInside = false;
 	float radius = 0;
@@ -32,15 +38,15 @@ public:
 
 	virtual bool init(); 
 
-	void setControllerPosition(Vec2 position); 
-	void setControllerSize(float radius);
-
+	void createBg();
+	void createBall();
+	 
+	void setPositioin(Vec2 position);
+	void setOffset(Vec2 offset);
+	 
 	void setBgResoucePath(std::string path);
 	void setBallResoucePath(std::string path);
-
-	void setBall_D_Bg(float proportion);
-	void setBgColor(Color4F color);
-	void setBallColor(Color4F color);
+	 
 
 	bool touchBeganCallback(Touch* touch, Event* event);
 	void touchMovedCallback(Touch* touch, Event* event);
