@@ -17,14 +17,16 @@ bool MainMenuScene::init() {
 
 	winSize = Director::getInstance()->getWinSize();
 
+        // 创建你要控制的精灵，并添加到容器中
 	role = LayerColor::create(Color4B::BLUE);
 	role->setContentSize(Size(30,30));
 	role->setPosition(winSize.width/2,winSize.height/2);
 	addChild(role,0);
  
-	// 初始化控制器
+	// 初始化控制器，并添加到容器中
 	auto controller = RoleController::createController(80,Vec2(50,80));
-	controller->setRoleControllerListenr(this);  // MainMenuScene（场景）类要继承RoleControllerListenr接口，然后
+	// MainMenuScene（场景）类要继承RoleControllerListenr接口，然后将this指向的实例对象作为参数传进去
+	controller->setRoleControllerListenr(this);  
 	addChild(controller,1); 
 
 
