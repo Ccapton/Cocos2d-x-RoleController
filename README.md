@@ -52,18 +52,18 @@ public:
 void MainMenuScene::onControllerTouchBegan(Vec2 velocity)
 {
 	CCLOG("MainMenuScene start %f %f", velocity.x, velocity.y);
-	//this->m_velocity = velocity;
-	//scheduleUpdate();
+	this->m_velocity = velocity;
+	scheduleUpdate();
 }
 void MainMenuScene::onControllerTouchMoving( Vec2 velocity)
 {
 	CCLOG("MainMenuScene moving %f %f", velocity.x, velocity.y);
-	//this->m_velocity = velocity;
+	this->m_velocity = velocity;
 }
 void MainMenuScene::onControllerTouchEnded(Vec2 velocity)
 {
 	CCLOG("MainMenuScene end %f %f", velocity.x, velocity.y);
-	//unscheduleUpdate();
+	unscheduleUpdate();
 }
 
 // 在此更新函数内，编写控制角色位置的逻辑代码
