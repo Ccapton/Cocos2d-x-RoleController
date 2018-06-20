@@ -99,16 +99,16 @@ void RoleController::touchMovedCallback(Touch* touch, Event* event) {
 		}else {
 			if (touchIngInside) {
 				float targetX = 0, targetY = 0;
-				if (touchP.x > centerP.x && touchP.y > centerP.y) {
+				if (touchP.x >= centerP.x && touchP.y >= centerP.y) {
 					targetX = centerP.x + radius * (touchP.x - centerP.x) / distance;
 					targetY = centerP.y + radius * (touchP.y - centerP.y) / distance;
-				}else if (touchP.x < centerP.x && touchP.y > centerP.y) {
+				}else if (touchP.x < centerP.x && touchP.y >= centerP.y) {
 					targetX = centerP.x - radius * (centerP.x - touchP.x) / distance;
 					targetY = centerP.y + radius * (touchP.y - centerP.y) / distance;
 				}else if (touchP.x < centerP.x && touchP.y < centerP.y) {
 					targetX = centerP.x - radius * (centerP.x - touchP.x) / distance;
 					targetY = centerP.y - radius * (centerP.y - touchP.y) / distance;
-				}else if (touchP.x > centerP.x && touchP.y < centerP.y) {
+				}else if (touchP.x >= centerP.x && touchP.y < centerP.y) {
 					targetX = centerP.x + radius * (touchP.x - centerP.x) / distance;
 					targetY = centerP.y - radius * (centerP.y - touchP.y ) / distance;
 				}
